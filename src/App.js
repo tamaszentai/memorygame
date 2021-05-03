@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import useSound from 'use-sound';
+import useSound from 'use-sound'
 
 import Backdrop from './components/Backdrop'
 import Card from './components/Card'
@@ -11,10 +11,10 @@ function App() {
   const [allPokemon, setAllPokemon] = useState([])
   const [doubledArray, setDoubledArray] = useState([])
   const [picked, setPicked] = useState([])
-  const [clickable, setClickable] = useState(true);
+  const [clickable, setClickable] = useState(true)
   const [matchedCard, setMatchedCard] = useState([])
-  const [win, setWin] = useState(false);
-  const [play] = useSound(music);
+  const [win, setWin] = useState(false)
+  const [play] = useSound(music)
 
   const numberGenerator = () => Math.ceil(Math.random() * 600)
   const shuffler = (array) => array.sort(() => Math.random() - 0.5)
@@ -36,18 +36,21 @@ function App() {
   const pickCard = (index) => {
     setPicked((picked) => [...picked, index])
     if (picked.length === 1) {
-      setClickable(false);
+      setClickable(false)
     }
+  }
+
+  const unlockAndClearPicked = () => {
+    setTimeout(() => setPicked([]), 600)
+    setTimeout(() => setClickable(true), 600)
   }
 
   const isMatch = () => {
     if (doubledArray[picked[0]].type === doubledArray[picked[1]].type) {
       setMatchedCard([...matchedCard, picked[0], picked[1]])
-      setTimeout(() => setPicked([]), 600)
-      setTimeout(() => setClickable(true), 600)
+      unlockAndClearPicked()
     } else {
-      setTimeout(() => setPicked([]), 600)
-      setTimeout(() => setClickable(true), 600)
+      unlockAndClearPicked()
     }
   }
 
@@ -59,9 +62,8 @@ function App() {
     setShowBackdrop(false)
   }
 
-  
   useEffect(() => {
-  // play()
+    // play()
   }, [showBackdrop])
 
   return (
