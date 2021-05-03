@@ -1,10 +1,11 @@
 import React from 'react'
-
 import './Backdrop.css';
+
+import Win from './Win';
 
 const Backdrop = (props) => {
   return <div className='backdrop'>
-    <button onClick={props.onShow}>PLAY GAME</button>
+    {props.win ? <Win /> : <button onClick={props.onShow}>PLAY GAME</button>}
   </div>
 }
 

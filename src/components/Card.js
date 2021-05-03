@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-import './Image.css'
+import './Card.css'
 import PokeLogo from '../assets/pokelogo.png';
 import GottaLogo from '../assets/gotta.png';
 
-const Image = (props) => {
+const Card = (props) => {
   
   return (
     <div className='scene'>
-      <div className={props.flipped || props.solved ? 'card' : 'card is-flipped'} onClick={() => props.onPick(props.index)}>
+      <div className={props.flipped || props.solved ? 'card' : 'card is-flipped'} onClick={props.clickable ? (props.flipped ? null : () => props.onPick(props.index)) : null}>
         <div className='card__face card__face--front'>
           <img src={props.url} />
         </div>
@@ -23,4 +23,4 @@ const Image = (props) => {
   )
 }
 
-export default Image
+export default Card
