@@ -1,9 +1,9 @@
 .scene {
-  width: 200px;
-  height: 200px;
-  perspective: 600px;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50px;
-  margin: .3rem;
+  margin: .1rem;
+  object-fit: cover;
 }
 
 .card:hover {
@@ -17,7 +17,7 @@
   transition: transform .5s;
   transform-style: preserve-3d;
   border-radius: 50px;
-  margin: 1rem;
+  /* margin: 1rem; */
   
 }
 
@@ -29,27 +29,28 @@
 }
 
 .card__face--front {
-  background: rgb(250, 211, 206);
+  background: rgb(247, 248, 169);
   border-radius: 50px;
 }
 
 .card__face--front img {
-  width: 100%;
+  padding-top: .4rem;
+  width: 80%;
 }
 
 .card__face--back {
-  background: rgb(141, 133, 218);
+  background: rgb(183, 232, 255);
   transform: rotateY( 180deg );
   border-radius: 50px;
 }
 
 .card__face--back:hover {
-  background-color: rgba(121, 141, 250, 0.5);
+  background-color: rgba(255, 251, 231, 0.5);
 }
 
 .card__face--back-img-container {
-    padding: 3rem 1rem;
-    width: 80%;
+    padding: .4rem .5rem;
+    width: 70%;
 }
 
 .card__face--back-img-container img {
@@ -61,3 +62,17 @@
   transform: rotateY(180deg);
 }
 
+.card.is-newlysolved {
+  animation-name: is-newlysolved ;
+  animation-timing-function: ease;
+}
+
+@keyframes is-newlysolved {
+    0%   { transform: scale(1,1)      translateY(0); }
+    10%  { transform: scale(1.1,.9)   translateY(0); }
+    30%  { transform: scale(.9,1.1)   translateY(-100px); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-7px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
+}

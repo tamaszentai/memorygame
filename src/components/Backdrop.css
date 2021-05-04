@@ -1,16 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 .backdrop {
+  top: 0;
+  left: 0;
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,1);
+  background: rgb(247, 248, 169);
   z-index: 1000;
 }
 
-button {
-  width: 20rem;
-  height: 10rem;
-  color: black;
-  font-size: 3rem;
-  margin-top: 20%;
-  border-radius: 50px;
+.backdrop-logo {
+  margin-top: 4rem;
+  width: 80%
+}
+
+.psyduck {
+  width: 60%
+}
+
+.memorylogo {
+  font-family: 'Gloria Hallelujah', cursive;
+  position: absolute;
+  font-size: 4rem;
+  transform: rotate(-10deg);
+  top: 25rem;
+  left: 4rem;
 }
