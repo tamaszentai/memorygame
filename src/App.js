@@ -66,7 +66,7 @@ function App() {
     setAllPokemon(pokemonArray)
     setDoubledArray([...shuffler(pokemonArray), ...shuffler(pokemonArray)])
     setTimer(timerForDifficulty)
-    console.log(chosenDifficulty, timerForDifficulty)
+    // console.log(chosenDifficulty, timerForDifficulty)
   }, [chosenDifficulty])
 
   const pickCard = (index) => {
@@ -147,7 +147,7 @@ function App() {
       <div className="stats">
       <h1 className="round">Rounds: {rounds} </h1>
       <div className="spacer"></div>
-      <h1 className="timer">Remaining time: {timer} </h1>
+      <h1 className="timer">Time: {timer} </h1>
       </div>
       <div className="container">
         {doubledArray.map((data, index) => {

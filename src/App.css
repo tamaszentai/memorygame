@@ -29,7 +29,7 @@
 
 .round {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 1rem 1rem 3rem 1rem;
 }
 
@@ -39,11 +39,12 @@
 
 .timer {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 1rem 1rem 3rem 1rem;
   padding-right: .5rem;
 }
 
 .newgame-button {
   background: rgb(247, 248, 169);
+  font-family: 'Gloria Hallelujah', cursive;
 }
