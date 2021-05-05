@@ -8,7 +8,7 @@ button {
 }
 
 select {
-  margin-top: 6rem;
+  margin-top: 5rem;
   width: 15rem;
   height: 3rem;
   font-size: 1rem;
@@ -18,6 +18,6 @@ select {
 
 .startgame-button {
   background: white;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: 'Anton', sans-serif;
 }

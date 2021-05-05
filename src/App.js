@@ -11,9 +11,10 @@ import victory from './assets/victory.mp3'
 import lose from './assets/lose.mp3'
 
 function App() {
+  const [difficulty, setDifficulty] = useState()
   const [showBackdrop, setShowBackdrop] = useState(true)
-  const [chosenDifficulty, setChosenDifficulty] = useState()
-  const [timerForDifficulty, setTimerForDifficulty] = useState()
+  const [requiredTime, setRequiredTime] = useState()
+  const [requiredCards, setRequiredCards] = useState()
   const [runGame, setRungame] = useState(false)
   const [allPokemon, setAllPokemon] = useState([])
   const [doubledArray, setDoubledArray] = useState([])
@@ -33,29 +34,32 @@ function App() {
   const shuffler = (array) => array.sort(() => Math.random() - 0.5)
 
   const getDifficulty = (difficulty) => {
-    switch (difficulty) {
-      case 'easy':
-        setChosenDifficulty(8)
-        setTimerForDifficulty(60)
-        break
-      case 'medium':
-        setChosenDifficulty(18)
-        setTimerForDifficulty(120)
-        break
-      case 'hard':
-        setChosenDifficulty(18)
-        setTimerForDifficulty(90)
-        break
-      default:
-        setChosenDifficulty(8)
-        setTimerForDifficulty(60)
-        break
-    }
+    setDifficulty(difficulty)
   }
 
   useEffect(() => {
+      switch (difficulty) {
+    case 'easy':
+      setRequiredTime(60)
+      setRequiredCards(8)
+      break
+    case 'medium':
+      setRequiredTime(120)
+      setRequiredCards(18)
+      break
+    case 'hard':
+      setRequiredTime(100)
+      setRequiredCards(18)
+      break;
+    default:
+      setRequiredTime(60)
+      setRequiredCards(8)
+  }
+  }, [difficulty])
+
+  useEffect(() => {
     const pokemonArray = []
-    for (let i = 1; i <= chosenDifficulty; i++) {
+    for (let i = 1; i <= requiredCards; i++) {
       const helper = numberGenerator()
       const object = {
         type: helper,
@@ -65,9 +69,9 @@ function App() {
     }
     setAllPokemon(pokemonArray)
     setDoubledArray([...shuffler(pokemonArray), ...shuffler(pokemonArray)])
-    setTimer(timerForDifficulty)
+    setTimer(requiredTime)
     // console.log(chosenDifficulty, timerForDifficulty)
-  }, [chosenDifficulty])
+  }, [requiredCards])
 
   const pickCard = (index) => {
     playPick()
@@ -115,14 +119,14 @@ function App() {
 
   useEffect(() => {
     setRungame(false)
-    if (matchedCard.length === chosenDifficulty * 2) {
+    if (matchedCard.length === requiredCards * 2) {
       setTimeout(() => {
         stop()
         playVictory()
         console.log(`Time: ${timer - 1}, Rounds: ${rounds + 1}`)
       }, 600)
     }
-  }, [matchedCard.length === chosenDifficulty * 2])
+  }, [matchedCard.length === requiredCards * 2])
 
   useEffect(() => {
     if (timer === 0) {
@@ -136,38 +140,38 @@ function App() {
 
   return (
     <>
-    <div className='App'>
-      {showBackdrop && (
-        <Backdrop
-          onStart={startGameHandler}
-          win={win}
-          getDifficulty={getDifficulty}
-        />
-      )}
-      <div className="stats">
-      <h1 className="round">Rounds: {rounds} </h1>
-      <div className="spacer"></div>
-      <h1 className="timer">Time: {timer} </h1>
-      </div>
-      <div className="container">
-        {doubledArray.map((data, index) => {
-          return (
-            <Card
-              key={index}
-              url={data.url}
-              flipped={picked.includes(index)}
-              clickable={clickable}
-              solved={matchedCard.includes(index)}
-              index={index}
-              onPick={pickCard}
-              runGame={runGame}
-            />
-          )
-        })}
+      <div className='App'>
+        {showBackdrop && (
+          <Backdrop
+            onStart={startGameHandler}
+            win={win}
+            getDifficulty={getDifficulty}
+          />
+        )}
+        <div className='stats'>
+          <h1 className='round'>Rounds: {rounds} </h1>
+          <div className='spacer'></div>
+          <h1 className='timer'>Time: {timer} </h1>
         </div>
-        <button className="newgame-button">New Game</button>
+        <div className='container'>
+          {doubledArray.map((data, index) => {
+            return (
+              <Card
+                key={index}
+                url={data.url}
+                flipped={picked.includes(index)}
+                clickable={clickable}
+                solved={matchedCard.includes(index)}
+                index={index}
+                onPick={pickCard}
+                runGame={runGame}
+              />
+            )
+          })}
+        </div>
+        <button className='newgame-button'>New Game</button>
       </div>
-      </>
+    </>
   )
 }
 

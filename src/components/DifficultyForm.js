@@ -5,7 +5,7 @@ import './DifficultyForm.css'
 const DifficultyForm = (props) => {
 
   const onSelectedHandler = (event) => {
-    props.getDifficulty(event.target.value);
+    props.getDifficulty(event.target.value)
   }
 
   const submitFormHandler = (event) => {
@@ -16,7 +16,12 @@ const DifficultyForm = (props) => {
   return (
     <div className='starting-page'>
       <form onSubmit={submitFormHandler}>
-        <select name='game-mode' id='game-mode' onChange={onSelectedHandler} required>
+        <select
+          name='game-mode'
+          id='game-mode'
+          onChange={onSelectedHandler}
+          required
+        >
           <option value='' selected disabled hidden>
             Choose Difficulty
           </option>
@@ -24,7 +29,7 @@ const DifficultyForm = (props) => {
           <option value='medium'>Medium</option>
           <option value='hard'>Hard</option>
         </select>
-        <button className="startgame-button">Start Game</button>
+        <button className='startgame-button'>Start Game</button>
       </form>
     </div>
   )

@@ -3,6 +3,7 @@
 .backdrop {
   top: 0;
   left: 0;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   background: rgb(247, 248, 169);
@@ -10,12 +11,12 @@
 }
 
 .backdrop-logo {
-  margin-top: 4rem;
+  margin-top: .5rem;
   width: 80%
 }
 
 .psyduck {
-  width: 60%
+  width: 50%
 }
 
 .memorylogo {
@@ -23,6 +24,6 @@
   position: absolute;
   font-size: 4rem;
   transform: rotate(-10deg);
-  top: 25rem;
+  top: 17rem;
   left: 4rem;
 }

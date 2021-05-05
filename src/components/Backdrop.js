@@ -7,8 +7,8 @@ import DifficultyForm from './DifficultyForm';
 
 const Backdrop = (props) => {
   return <div className='backdrop'>
-    <img className="backdrop-logo" src={logo} />
-    <img className="psyduck" src={psyduck} />
+    <img className="backdrop-logo" src={logo} alt="Pokemon logo"/>
+    <img className="psyduck" src={psyduck} alt="Psyduck" />
     <h1 className="memorylogo">Memory</h1>
     <DifficultyForm onStart={props.onStart} getDifficulty={props.getDifficulty}/>
   </div>
