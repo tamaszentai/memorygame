@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
-.backdrop {
+.startform {
   top: 0;
   left: 0;
   position: fixed;
@@ -10,7 +10,7 @@
   z-index: 1000;
 }
 
-.backdrop-logo {
+.start-logo {
   margin-top: .5rem;
   width: 80%
 }
@@ -26,4 +26,24 @@
   transform: rotate(-10deg);
   top: 17rem;
   left: 4rem;
+}
+
+select {
+  margin-top: 5rem;
+  width: 15rem;
+  height: 3rem;
+  font-size: 1rem;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+}
+
+.startgame-button {
+  background: white;
+  margin-top: 1rem;
+  font-family: 'Anton', sans-serif;
+  width: 10rem;
+  height: 5rem;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 50px;
 }

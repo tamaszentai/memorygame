@@ -1,8 +1,10 @@
 import React from 'react'
 
-import './DifficultyForm.css'
+import './StartForm.css'
+import logo from '../assets/pokelogo.png';
+import psyduck from '../assets/psyduck.png';
 
-const DifficultyForm = (props) => {
+const StartForm = (props) => {
 
   const onSelectedHandler = (event) => {
     props.getDifficulty(event.target.value)
@@ -14,7 +16,10 @@ const DifficultyForm = (props) => {
   }
 
   return (
-    <div className='starting-page'>
+    <div className='startform'>
+      <img className="start-logo" src={logo} alt="Pokemon logo"/>
+    <img className="psyduck" src={psyduck} alt="Psyduck" />
+    <h1 className="memorylogo">Memory</h1>
       <form onSubmit={submitFormHandler}>
         <select
           name='game-mode'
@@ -35,4 +40,4 @@ const DifficultyForm = (props) => {
   )
 }
 
-export default DifficultyForm
+export default StartForm

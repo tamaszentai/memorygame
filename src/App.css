@@ -2,29 +2,20 @@
   text-align: center;
 }
 
-/* .container {
-  display: flex;
-  width: 100vw;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  align-content: stretch;
-  border: 2px solid black;
-} */
-
 .container {
   justify-content: center;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(3rem, auto));
-  grid-gap: .5rem;
+  grid-gap: 0.5rem;
   width: 100vw;
 }
 
 .stats {
   display: flex;
   color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .round {
@@ -41,10 +32,16 @@
   display: inline-block;
   font-size: 1.5rem;
   margin: 1rem 1rem 3rem 1rem;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 
 .newgame-button {
   background: rgb(247, 248, 169);
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Anton', sans-serif;
+  width: 10rem;
+  height: 5rem;
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 50%;
+  border-radius: 50px;
 }

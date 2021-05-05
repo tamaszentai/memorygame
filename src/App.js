@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import useSound from 'use-sound'
 
-import Backdrop from './components/Backdrop'
-import Card from './components/Card'
 import './App.css'
+
+import StartForm from './components/StartForm'
+import EndModal from './components/EndModal'
+import Card from './components/Card'
 import theme from './assets/pokemontheme.mp3'
 import pick from './assets/pick.mp3'
 import matched from './assets/matched.mp3'
@@ -12,7 +14,7 @@ import lose from './assets/lose.mp3'
 
 function App() {
   const [difficulty, setDifficulty] = useState()
-  const [showBackdrop, setShowBackdrop] = useState(true)
+  const [showStartForm, setShowStartForm] = useState(true)
   const [requiredTime, setRequiredTime] = useState()
   const [requiredCards, setRequiredCards] = useState()
   const [runGame, setRungame] = useState(false)
@@ -21,6 +23,7 @@ function App() {
   const [picked, setPicked] = useState([])
   const [clickable, setClickable] = useState(true)
   const [matchedCard, setMatchedCard] = useState([])
+  const [endGame, setEndGame] = useState(false)
   const [win, setWin] = useState(false)
   const [playTheme, { stop }] = useSound(theme)
   const [playPick] = useSound(pick)
@@ -38,23 +41,23 @@ function App() {
   }
 
   useEffect(() => {
-      switch (difficulty) {
-    case 'easy':
-      setRequiredTime(60)
-      setRequiredCards(8)
-      break
-    case 'medium':
-      setRequiredTime(120)
-      setRequiredCards(18)
-      break
-    case 'hard':
-      setRequiredTime(100)
-      setRequiredCards(18)
-      break;
-    default:
-      setRequiredTime(60)
-      setRequiredCards(8)
-  }
+    switch (difficulty) {
+      case 'easy':
+        setRequiredTime(60)
+        setRequiredCards(8)
+        break
+      case 'medium':
+        setRequiredTime(120)
+        setRequiredCards(18)
+        break
+      case 'hard':
+        setRequiredTime(100)
+        setRequiredCards(18)
+        break
+      default:
+        setRequiredTime(60)
+        setRequiredCards(8)
+    }
   }, [difficulty])
 
   useEffect(() => {
@@ -87,6 +90,7 @@ function App() {
   const isMatch = () => {
     if (doubledArray[picked[0]].type === doubledArray[picked[1]].type) {
       setMatchedCard([...matchedCard, picked[0], picked[1]])
+      setTimeout(() => playMatched(), 400)
       unlockAndClearPicked(600, 400)
     } else {
       unlockAndClearPicked(600, 600)
@@ -101,17 +105,13 @@ function App() {
   }, [picked])
 
   const startGameHandler = () => {
-    setShowBackdrop(false)
+    setShowStartForm(false)
     setRungame(true)
   }
 
   useEffect(() => {
     if (runGame === true) playTheme()
   }, [runGame])
-
-  useEffect(() => {
-    setTimeout(() => playMatched(), 400)
-  }, [matchedCard])
 
   useEffect(() => {
     timer > 0 && setTimeout(() => setTimer(timer - 1), 1000)
@@ -123,7 +123,7 @@ function App() {
       setTimeout(() => {
         stop()
         playVictory()
-        console.log(`Time: ${timer - 1}, Rounds: ${rounds + 1}`)
+        setEndGame(true)
       }, 600)
     }
   }, [matchedCard.length === requiredCards * 2])
@@ -131,6 +131,7 @@ function App() {
   useEffect(() => {
     if (timer === 0) {
       setTimeout(() => {
+        setEndGame(true)
         setRungame(false)
         stop()
         playLose()
@@ -138,11 +139,32 @@ function App() {
     }
   }, [timer === 0])
 
+  const newGameHandler = () => {
+    setDifficulty()
+    setShowStartForm(true)
+    setRungame(false)
+    setEndGame(false)
+    setRequiredCards(8)
+    setMatchedCard([])
+    setRequiredTime(60)
+    setPicked([])
+    setTimer(60)
+    setRounds(0)
+    stop()
+  }
+
   return (
     <>
       <div className='App'>
-        {showBackdrop && (
-          <Backdrop
+        <EndModal
+          newGameHandler={newGameHandler}
+          endGame={endGame}
+          timer={timer}
+          rounds={rounds}
+        />
+        {showStartForm && (
+          <StartForm
+            runGame={runGame}
             onStart={startGameHandler}
             win={win}
             getDifficulty={getDifficulty}
@@ -169,7 +191,6 @@ function App() {
             )
           })}
         </div>
-        <button className='newgame-button'>New Game</button>
       </div>
     </>
   )

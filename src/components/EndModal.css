@@ -1,0 +1,37 @@
+.endmodal {
+  opacity: 0;
+  color: orange;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 50%;
+  background-color: rgba(255,255,255, 0.8);
+  border-radius: 60px;
+  border: solid 2px black;
+  transition: .4s;
+}
+
+.endmodal.show {
+  opacity: 1;
+  z-index: 900;
+}
+
+.newgame-endgame-button {
+  margin-top: 4rem;
+  background: rgb(247, 248, 169);
+  font-family: 'Anton', sans-serif;
+  width: 10rem;
+  height: 5rem;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 50px;
+}
+
+h2 {
+  padding-top: 4rem;
+  margin: 0 2rem
+}
