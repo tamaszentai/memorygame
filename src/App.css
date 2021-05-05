@@ -11,6 +11,15 @@
   width: 100vw;
 }
 
+.container-easy {
+  justify-content: center;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, auto));
+  grid-gap: 0.5rem;
+  width: 100vw;
+}
+
 .stats {
   display: flex;
   color: white;

@@ -15,23 +15,20 @@ import lose from './assets/lose.mp3'
 function App() {
   const [difficulty, setDifficulty] = useState()
   const [showStartForm, setShowStartForm] = useState(true)
-  const [requiredTime, setRequiredTime] = useState()
   const [requiredCards, setRequiredCards] = useState()
   const [runGame, setRungame] = useState(false)
   const [allPokemon, setAllPokemon] = useState([])
-  const [doubledArray, setDoubledArray] = useState([])
   const [picked, setPicked] = useState([])
   const [clickable, setClickable] = useState(true)
   const [matchedCard, setMatchedCard] = useState([])
   const [endGame, setEndGame] = useState(false)
-  const [win, setWin] = useState(false)
+  const [rounds, setRounds] = useState(0)
+  const [timer, setTimer] = useState()
   const [playTheme, { stop }] = useSound(theme)
   const [playPick] = useSound(pick)
   const [playMatched] = useSound(matched)
   const [playVictory] = useSound(victory)
   const [playLose] = useSound(lose)
-  const [rounds, setRounds] = useState(0)
-  const [timer, setTimer] = useState()
 
   const numberGenerator = () => Math.ceil(Math.random() * 600)
   const shuffler = (array) => array.sort(() => Math.random() - 0.5)
@@ -43,25 +40,26 @@ function App() {
   useEffect(() => {
     switch (difficulty) {
       case 'easy':
-        setRequiredTime(60)
+        setTimer(60)
         setRequiredCards(8)
         break
       case 'medium':
-        setRequiredTime(120)
+        setTimer(120)
         setRequiredCards(18)
         break
       case 'hard':
-        setRequiredTime(100)
+        setTimer(100)
         setRequiredCards(18)
         break
-      default:
-        setRequiredTime(60)
-        setRequiredCards(8)
+      // default:
+      //   setRequiredTime(60)
+      //   setRequiredCards(8)
+      //   break;
     }
   }, [difficulty])
 
   useEffect(() => {
-    const pokemonArray = []
+    let pokemonArray = []
     for (let i = 1; i <= requiredCards; i++) {
       const helper = numberGenerator()
       const object = {
@@ -70,10 +68,9 @@ function App() {
       }
       pokemonArray.push(object)
     }
-    setAllPokemon(pokemonArray)
-    setDoubledArray([...shuffler(pokemonArray), ...shuffler(pokemonArray)])
-    setTimer(requiredTime)
-    // console.log(chosenDifficulty, timerForDifficulty)
+    pokemonArray = [...pokemonArray, ...pokemonArray]
+    setAllPokemon(shuffler(pokemonArray))
+    console.log('fired');
   }, [requiredCards])
 
   const pickCard = (index) => {
@@ -88,7 +85,7 @@ function App() {
   }
 
   const isMatch = () => {
-    if (doubledArray[picked[0]].type === doubledArray[picked[1]].type) {
+    if (allPokemon[picked[0]].type === allPokemon[picked[1]].type) {
       setMatchedCard([...matchedCard, picked[0], picked[1]])
       setTimeout(() => playMatched(), 400)
       unlockAndClearPicked(600, 400)
@@ -141,15 +138,16 @@ function App() {
 
   const newGameHandler = () => {
     setDifficulty()
+    setAllPokemon([])
     setShowStartForm(true)
     setRungame(false)
     setEndGame(false)
-    setRequiredCards(8)
-    setMatchedCard([])
-    setRequiredTime(60)
+    setRequiredCards()
     setPicked([])
-    setTimer(60)
+    setMatchedCard([])
+    setTimer()
     setRounds(0)
+    setClickable(true);
     stop()
   }
 
@@ -166,7 +164,6 @@ function App() {
           <StartForm
             runGame={runGame}
             onStart={startGameHandler}
-            win={win}
             getDifficulty={getDifficulty}
           />
         )}
@@ -175,8 +172,8 @@ function App() {
           <div className='spacer'></div>
           <h1 className='timer'>Time: {timer} </h1>
         </div>
-        <div className='container'>
-          {doubledArray.map((data, index) => {
+        <div className={requiredCards === 8 ? 'container-easy' : 'container'}>
+          {allPokemon.map((data, index) => {
             return (
               <Card
                 key={index}
@@ -187,6 +184,7 @@ function App() {
                 index={index}
                 onPick={pickCard}
                 runGame={runGame}
+                requiredCards={requiredCards}
               />
             )
           })}
