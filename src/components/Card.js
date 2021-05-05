@@ -18,7 +18,7 @@ const Card = (props) => {
   return (
     <div className={props.requiredCards === 8 ? 'sceneeasy' : 'scene'}>
       <div
-        className={props.flipped || props.solved ? 'card' : 'card is-flipped'}
+        className={props.flipped || props.solved ? 'card' : 'card is-flipped' }
         onClick={clickHandler}
       >
         <div className='card__face card__face--front'>

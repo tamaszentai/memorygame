@@ -1,5 +1,4 @@
 .endmodal {
-  opacity: 0;
   color: orange;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   position: absolute;
@@ -12,11 +11,14 @@
   background-color: rgba(255,255,255, 0.8);
   border-radius: 60px;
   border: solid 2px black;
-  transition: .4s;
+  transition: 1s;
+  opacity: 0;
+  transform: scale(0)
 }
 
 .endmodal.show {
   opacity: 1;
+  transform: scale(1);
   z-index: 900;
 }
 
