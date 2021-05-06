@@ -24,6 +24,9 @@
 }
 
 .newgame-endgame-button {
+  position: fixed;
+  bottom: 10px;
+  left: 25%;
   display: block;
   margin: 0 auto;
   background: rgb(247, 248, 169);
@@ -47,6 +50,12 @@ p {
   .endmodal {
     top: 10%;
     height: 70%;
+    left: 7.5%;
+    width: 85%;
+  }
+
+  .newgame-endgame-button {
+    left: 20%;
   }
 }
 
@@ -55,10 +64,6 @@ p {
   .endmodal {
     top: 20%;
     height: 60%;
-  }
-
-  .newgame-endgame-button {
-    margin: 3rem auto;
   }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -75,7 +80,7 @@ p {
   }
 
   .newgame-endgame-button {
-    margin: 5rem auto;
+    left: 33%;
   }
 }
 
@@ -103,7 +108,7 @@ p {
   }
 
   .newgame-endgame-button {
-    margin: 5rem auto;
+    left: 35%;
     width: 12rem;
     height: 7rem;
     font-size: 2rem;
@@ -117,5 +122,9 @@ p {
     height: 80%;
     width: 40%;
     left: 30%;
+  }
+  .newgame-endgame-button {
+    cursor: pointer;
+    left: 38%;
   }
 }

@@ -2,14 +2,12 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 20px;
-  object-fit: cover;
 }
 
 .sceneeasy {
   width: 5.4rem;
   height: 5.4rem;
   border-radius: 20px;
-  object-fit: cover;
 }
 
 .card:hover {
@@ -40,6 +38,7 @@
 .card__face--front img {
   padding-top: 0.4rem;
   width: 80%;
+  border-radius: 20px;
 }
 
 .card__face--fronteasy {
@@ -50,6 +49,7 @@
 .card__face--fronteasy img {
   padding-top: 0.4rem;
   width: 80%;
+  border-radius: 20px;
 }
 
 .card__face--back {
@@ -64,13 +64,14 @@
   border-radius: 20px;
 }
 
-/* .card__face--back:hover {
-  background-color: rgba(255, 251, 231, 0.5);
-} */
-
 .card__face--back-img-container {
-  padding: 0rem 0.5rem;
-  width: 70%;
+  padding: 0.2rem 0.2rem;
+  width: 90%;
+}
+
+.card__face--back-img-containereasy {
+  padding: 1rem 0rem;
+  width: 100%;
 }
 
 .card__face--back-img-container img {
@@ -101,6 +102,16 @@
     margin: 0.1rem;
     object-fit: cover;
   }
+
+  .card__face--back-img-container {
+    padding: 0rem 0.2rem;
+    width: 90%;
+  }
+
+  .card__face--back-img-containereasy {
+    padding: 0.5rem 0rem;
+    width: 100%;
+  }
 }
 
 /* Medium phone devices (phones, 410px and up) */
@@ -119,6 +130,16 @@
     margin: 0.2rem;
     object-fit: cover;
   }
+
+  .card__face--back-img-container {
+    padding: 0.2rem 0.2rem;
+    width: 90%;
+  }
+
+  .card__face--back-img-containereasy {
+    padding: 1rem 0rem;
+    width: 100%;
+  }
 } 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -135,6 +156,15 @@
     height: 11rem;
     margin: 0.5rem;
     object-fit: cover;
+  }
+  .card__face--back-img-container {
+    padding: 1.5rem .7rem;
+    width: 80%;
+  }
+
+  .card__face--back-img-containereasy {
+    padding: 2rem .5rem;
+    width: 90%;
   }
 }
 
@@ -156,6 +186,17 @@
     margin: 0.5rem;
     object-fit: cover;
   }
+
+  .card__face--back-img-container {
+    padding: 2rem .7rem;
+    width: 80%;
+  }
+
+  .card__face--back-img-containereasy {
+    padding: 3rem .5rem;
+    width: 90%;
+  }
+  
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -172,5 +213,23 @@
     height: 12rem;
     margin: 0 auto;
     /* object-fit: cover; */
+  }
+
+  .card__face--back:hover {
+    background-color: rgb(249,191,0);
+  }
+
+  .card__face--backeasy:hover {
+    background-color: rgb(249,191,0);
+  }
+
+  .card__face--back-img-container {
+    padding: 2rem .7rem;
+    width: 80%;
+  }
+
+  .card__face--back-img-containereasy {
+    padding: 3rem .5rem;
+    width: 90%;
   }
 }

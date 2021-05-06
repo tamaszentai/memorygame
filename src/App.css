@@ -116,13 +116,18 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  .stats h1 {
+    margin: 0 15rem 0 15rem;
+  }
+
   .container {
-    margin: 0 auto;
+    margin: 0rem auto;
     grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 0.3rem;
   }
 
   .container-easy {
+    margin: 0rem auto;
     grid-template-columns: auto auto auto auto;
     grid-gap: 0.3rem;
   }

@@ -18,6 +18,7 @@ function App() {
   const [requiredCards, setRequiredCards] = useState()
   const [time, setTime] = useState()
   const [runGame, setRungame] = useState(false)
+  const [success, setSuccess] = useState()
   const [allPokemon, setAllPokemon] = useState([])
   const [picked, setPicked] = useState([])
   const [clickable, setClickable] = useState(true)
@@ -25,11 +26,11 @@ function App() {
   const [endGame, setEndGame] = useState(false)
   const [rounds, setRounds] = useState(0)
   const [timer, setTimer] = useState()
-  const [playTheme, { stop }] = useSound(theme)
-  const [playPick] = useSound(pick)
-  const [playMatched] = useSound(matched)
-  const [playVictory] = useSound(victory)
-  const [playLose] = useSound(lose)
+  const [playTheme, { stop }] = useSound(theme, {volume: 0.5})
+  const [playPick] = useSound(pick, {volume: 0.75})
+  const [playMatched] = useSound(matched, {volume: 0.75})
+  const [playVictory] = useSound(victory, {volume: 0.5})
+  const [playLose] = useSound(lose, {volume: 0.5})
 
   const numberGenerator = () => Math.ceil(Math.random() * 600)
   const shuffler = (array) => array.sort(() => Math.random() - 0.5)
@@ -43,17 +44,17 @@ function App() {
       case 'easy':
         setTimer(60)
         setRequiredCards(8)
-        setTime(60);
+        setTime(60)
         break
       case 'medium':
-        setTimer(120)
+        setTimer(140)
         setRequiredCards(18)
-        setTime(120);
+        setTime(140)
         break
       case 'hard':
-        setTimer(100)
+        setTimer(120)
         setRequiredCards(18)
-        setTime(100);
+        setTime(120)
         break
       // default:
       //   setRequiredTime(60)
@@ -61,7 +62,6 @@ function App() {
       //   break;
     }
   }, [difficulty])
-
 
   useEffect(() => {
     let pokemonArray = []
@@ -75,7 +75,6 @@ function App() {
     }
     pokemonArray = [...pokemonArray, ...pokemonArray]
     setAllPokemon(shuffler(pokemonArray))
-    console.log('fired');
   }, [requiredCards])
 
   const pickCard = (index) => {
@@ -93,9 +92,9 @@ function App() {
     if (allPokemon[picked[0]].type === allPokemon[picked[1]].type) {
       setMatchedCard([...matchedCard, picked[0], picked[1]])
       setTimeout(() => playMatched(), 400)
-      unlockAndClearPicked(600, 400)
-    } else {
       unlockAndClearPicked(600, 600)
+    } else {
+      unlockAndClearPicked(600, 800)
     }
   }
 
@@ -120,8 +119,9 @@ function App() {
   }, [runGame && timer])
 
   useEffect(() => {
-    setRungame(false)
     if (matchedCard.length === requiredCards * 2) {
+      setRungame(false)
+      setSuccess(true)
       setTimeout(() => {
         stop()
         playVictory()
@@ -131,8 +131,9 @@ function App() {
   }, [matchedCard.length === requiredCards * 2])
 
   useEffect(() => {
-    if (timer === 0) {
+    if (timer === 0 && matchedCard.length !== requiredCards * 2) {
       setTimeout(() => {
+        setSuccess(false)
         setEndGame(true)
         setRungame(false)
         stop()
@@ -152,7 +153,7 @@ function App() {
     setMatchedCard([])
     setTimer()
     setRounds(0)
-    setClickable(true);
+    setClickable(true)
     stop()
   }
 
@@ -165,6 +166,7 @@ function App() {
           timer={timer}
           rounds={rounds}
           time={time}
+          success={success}
         />
         {showStartForm && (
           <StartForm
