@@ -59,9 +59,9 @@
 @media only screen and (max-width: 320px) {
   .container {
     grid-template-columns: auto auto auto auto auto auto;
-    grid-gap: .3rem;
+    grid-gap: 0.3rem;
   }
-  
+
   .container-easy {
     grid-template-columns: auto auto auto auto;
     grid-gap: 0.2rem;
@@ -72,15 +72,14 @@
 @media only screen and (min-width: 410px) {
   .container {
     grid-template-columns: auto auto auto auto auto auto;
-    grid-gap: .3rem;
+    grid-gap: 0.3rem;
   }
-  
+
   .container-easy {
     grid-template-columns: auto auto auto auto;
     grid-gap: 0rem;
   }
-  
-} 
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -88,7 +87,7 @@
     grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 0rem;
   }
-  
+
   .container-easy {
     grid-template-columns: auto auto auto auto;
     grid-gap: 0rem;
@@ -101,11 +100,14 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+  .stats h1 {
+    font-size: 2rem;
+  }
   .container {
     grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 0rem;
   }
-  
+
   .container-easy {
     grid-template-columns: auto auto auto auto;
     grid-gap: 0rem;
@@ -115,10 +117,11 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .container {
+    margin: 0 auto;
     grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 0.3rem;
   }
-  
+
   .container-easy {
     grid-template-columns: auto auto auto auto;
     grid-gap: 0.3rem;
