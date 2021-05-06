@@ -1,16 +1,14 @@
 .scene {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 20px;
-  margin: 0.1rem;
   object-fit: cover;
 }
 
 .sceneeasy {
-  width: 5rem;
-  height: 5rem;
+  width: 5.4rem;
+  height: 5.4rem;
   border-radius: 20px;
-  margin: 0.1rem;
   object-fit: cover;
 }
 
@@ -87,17 +85,92 @@
   transform: rotateY(180deg);
 }
 
-/* Extra small devices (phones, 599px and down) */
-@media only screen and (max-width: 599px) {}
+/* Extra small devices (phones, 320px and down) */
+@media only screen and (max-width: 320px) {
+  .scene {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  .sceneeasy {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 20px;
+    margin: 0.1rem;
+    object-fit: cover;
+  }
+}
+
+/* Medium phone devices (phones, 410px and up) */
+@media only screen and (min-width: 410px) {
+  .scene {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  .sceneeasy {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 20px;
+    margin: 0.2rem;
+    object-fit: cover;
+  }
+} 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+  .scene {
+    width: 7em;
+    height: 7rem;
+    margin: .5rem;
+    object-fit: cover;
+  }
+  
+  .sceneeasy {
+    width: 11rem;
+    height: 11rem;
+    margin: 0.5rem;
+    object-fit: cover;
+  }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+  .scene {
+    width: 10em;
+    height: 10rem;
+    margin: 0.3rem;
+    object-fit: cover;
+  }
+  
+  .sceneeasy {
+    width: 15rem;
+    height: 15rem;
+    margin: 0.5rem;
+    object-fit: cover;
+  }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+  .scene {
+    width: 8rem;
+    height: 8rem;
+    margin: 0.3rem;
+    object-fit: cover;
+  }
+  
+  .sceneeasy {
+    width: 12rem;
+    height: 12rem;
+    margin: 0 auto;
+    /* object-fit: cover; */
+  }
+}

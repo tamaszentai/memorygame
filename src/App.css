@@ -4,10 +4,10 @@
 
 .container {
   justify-content: center;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(3rem, auto));
-  grid-gap: 0.5rem;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 0.4rem;
   width: 100vw;
 }
 
@@ -15,8 +15,8 @@
   justify-content: center;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(5rem, auto));
-  grid-gap: 0.5rem;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 0.3rem;
   width: 100vw;
 }
 
@@ -53,4 +53,74 @@
   font-size: 1.5rem;
   margin-top: 50%;
   border-radius: 50px;
+}
+
+/* Extra small devices (phones, 320px and down) */
+@media only screen and (max-width: 320px) {
+  .container {
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: .3rem;
+  }
+  
+  .container-easy {
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0.2rem;
+  }
+}
+
+/* Medium phone devices (phones, 410px and up) */
+@media only screen and (min-width: 410px) {
+  .container {
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: .3rem;
+  }
+  
+  .container-easy {
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0rem;
+  }
+  
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .container {
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 0rem;
+  }
+  
+  .container-easy {
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container {
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 0rem;
+  }
+  
+  .container-easy {
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 0.3rem;
+  }
+  
+  .container-easy {
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0.3rem;
+  }
 }

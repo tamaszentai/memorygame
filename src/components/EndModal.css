@@ -39,9 +39,11 @@ p {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-/* Extra small devices (phones, 599px and down) */
-@media only screen and (max-width: 599px) {}
+/* Extra small devices (phones, 320px and down) */
+@media only screen and (max-width: 320px) {}
 
+/* Medium phone devices (phones, 410px and up) */
+@media only screen and (min-width: 410px) {}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}
 
