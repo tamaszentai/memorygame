@@ -11,7 +11,7 @@
   background-color: rgba(255,255,255, 0.8);
   border-radius: 60px;
   border: solid 2px black;
-  transition: 1s;
+  transition: .4s;
   opacity: 0;
   transform: scale(0)
 }
@@ -23,7 +23,7 @@
 }
 
 .newgame-endgame-button {
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   background: rgb(247, 248, 169);
   font-family: 'Anton', sans-serif;
   width: 10rem;
@@ -33,7 +33,23 @@
   border-radius: 50px;
 }
 
-h2 {
-  padding-top: 4rem;
-  margin: 0 2rem
+p {
+  margin: 0;
+  color: red;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+/* Extra small devices (phones, 599px and down) */
+@media only screen and (max-width: 599px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

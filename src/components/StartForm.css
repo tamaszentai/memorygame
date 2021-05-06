@@ -11,39 +11,157 @@
 }
 
 .start-logo {
-  margin-top: .5rem;
+  display: block;
+  margin: .5rem auto;
   width: 80%
 }
 
 .psyduck {
+  display: block;
+  margin: 0 auto;
   width: 50%
 }
 
 .memorylogo {
+  display: block;
+  margin: -2rem auto;
   font-family: 'Gloria Hallelujah', cursive;
-  position: absolute;
   font-size: 4rem;
   transform: rotate(-10deg);
-  top: 17rem;
-  left: 4rem;
 }
 
 select {
-  margin-top: 5rem;
+  display: block;
+  margin: 2rem auto 0 auto;
   width: 15rem;
   height: 3rem;
   font-size: 1rem;
   font-family: 'Anton', sans-serif;
-  text-align: center;
+  background: rgb(249,191,0);
 }
 
 .startgame-button {
-  background: white;
-  margin-top: 1rem;
+  display: block;
+  background: rgb(249,191,0);
+  margin: 1rem auto 0 auto;
   font-family: 'Anton', sans-serif;
   width: 10rem;
   height: 5rem;
   color: black;
   font-size: 1.5rem;
   border-radius: 50px;
+}
+
+/* Extra small devices (phones, 320px and down) */
+@media only screen and (max-width: 320px) {
+
+  .memorylogo {
+    margin: -3rem auto;
+  }
+
+  select {
+    margin-top: 3rem;
+  }
+}
+
+/* Medium phone devices (phones, 410px and up) */
+@media only screen and (min-width: 410px) {
+
+  select {
+    width: 20rem;
+    height: 4rem;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .startgame-button {
+    margin-top: 1rem;
+    margin-left: 33%;
+    display: block;
+  }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .psyduck {
+    width: 40%
+  }
+
+  .memorylogo {
+    margin-top: -4rem;
+    font-size: 7rem;
+  }
+
+  select {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+
+  .startgame-button {
+    margin: 1rem auto;
+    width: 14rem;
+    height: 7rem;
+    font-size: 2rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .psyduck {
+    width: 40%
+  }
+
+  .memorylogo {
+    margin: -4rem;
+    font-size: 8rem;
+  }
+
+  select {
+    margin-top: 5rem;
+    font-size: 2rem;
+  }
+
+  .startgame-button {
+    margin-top: 1rem;
+    margin-left: 40%;
+    display: block;
+    width: 14rem;
+    height: 7rem;
+    font-size: 2rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .start-logo {
+    display: block;
+    margin: 0 auto;
+    width: 35%;
+  }
+
+  .psyduck {
+    display: block;
+    margin: 0 auto;
+    width: 12%
+  }
+
+  .memorylogo {
+    font-size: 5rem;
+  }
+
+  select {
+    font-size: 2rem;
+  }
+
+  .startgame-button {
+    margin: 2rem auto;
+    display: block;
+    width: 14rem;
+    height: 7rem;
+    font-size: 2rem;
+  }
+
 }

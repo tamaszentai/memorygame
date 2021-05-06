@@ -16,6 +16,7 @@ function App() {
   const [difficulty, setDifficulty] = useState()
   const [showStartForm, setShowStartForm] = useState(true)
   const [requiredCards, setRequiredCards] = useState()
+  const [time, setTime] = useState()
   const [runGame, setRungame] = useState(false)
   const [allPokemon, setAllPokemon] = useState([])
   const [picked, setPicked] = useState([])
@@ -42,14 +43,17 @@ function App() {
       case 'easy':
         setTimer(60)
         setRequiredCards(8)
+        setTime(60);
         break
       case 'medium':
         setTimer(120)
         setRequiredCards(18)
+        setTime(120);
         break
       case 'hard':
         setTimer(100)
         setRequiredCards(18)
+        setTime(100);
         break
       // default:
       //   setRequiredTime(60)
@@ -57,6 +61,7 @@ function App() {
       //   break;
     }
   }, [difficulty])
+
 
   useEffect(() => {
     let pokemonArray = []
@@ -159,6 +164,7 @@ function App() {
           endGame={endGame}
           timer={timer}
           rounds={rounds}
+          time={time}
         />
         {showStartForm && (
           <StartForm

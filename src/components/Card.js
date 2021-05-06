@@ -21,11 +21,11 @@ const Card = (props) => {
         className={props.flipped || props.solved ? 'card' : 'card is-flipped' }
         onClick={clickHandler}
       >
-        <div className='card__face card__face--front'>
+        <div className={props.requiredCards === 8 ? 'card__face card__face--fronteasy' : 'card__face card__face--front'}>
           <img src={props.url} alt='card front'/>
         </div>
-        <div className='card__face card__face--back'>
-          <div className='card__face--back-img-container'>
+        <div className={props.requiredCards === 8 ? 'card__face card__face--backeasy' : 'card__face card__face--back'}>
+          <div className={props.requiredCards === 8 ? 'card__face--back-img-containereasy' : 'card__face--back-img-container'}>
             <img src={PokeLogo} alt='Pokemon logo'/>
             <img src={GottaLogo} alt='Gotta catchem all'/>
           </div>

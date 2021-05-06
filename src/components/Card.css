@@ -1,7 +1,7 @@
 .scene {
   width: 3.2rem;
   height: 3.2rem;
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 0.1rem;
   object-fit: cover;
 }
@@ -9,7 +9,7 @@
 .sceneeasy {
   width: 5rem;
   height: 5rem;
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 0.1rem;
   object-fit: cover;
 }
@@ -24,7 +24,7 @@
   position: relative;
   transition: transform 0.5s;
   transform-style: preserve-3d;
-  border-radius: 50px;
+  border-radius: 20px;
 }
 
 .card__face {
@@ -36,7 +36,7 @@
 
 .card__face--front {
   background: rgb(247, 248, 169);
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 .card__face--front img {
@@ -44,28 +44,60 @@
   width: 80%;
 }
 
+.card__face--fronteasy {
+  background: rgb(247, 248, 169);
+  border-radius: 20px;
+}
+
+.card__face--fronteasy img {
+  padding-top: 0.4rem;
+  width: 80%;
+}
+
 .card__face--back {
   background: rgb(183, 232, 255);
   transform: rotateY(180deg);
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
-.card__face--back:hover {
-  background-color: rgba(255, 251, 231, 0.5);
+.card__face--backeasy {
+  background: rgb(183, 232, 255);
+  transform: rotateY(180deg);
+  border-radius: 20px;
 }
+
+/* .card__face--back:hover {
+  background-color: rgba(255, 251, 231, 0.5);
+} */
 
 .card__face--back-img-container {
   padding: 0rem 0.5rem;
   width: 70%;
 }
 
-
-
-
 .card__face--back-img-container img {
   width: 100%;
+}
+
+.card__face--back-img-containereasy img {
+  width: 90%;
 }
 
 .card.is-flipped {
   transform: rotateY(180deg);
 }
+
+/* Extra small devices (phones, 599px and down) */
+@media only screen and (max-width: 599px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
