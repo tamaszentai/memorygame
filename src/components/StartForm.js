@@ -32,7 +32,7 @@ const StartForm = (props) => {
           </option>
           <option value='easy'>Easy</option>
           <option value='medium'>Medium</option>
-          <option value='hard'>Hard</option>
+          <option value='hard'>Hard (-30 seconds)</option>
         </select>
         <button className='startgame-button'>Start Game</button>
       </form>

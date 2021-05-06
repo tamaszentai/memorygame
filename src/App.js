@@ -26,11 +26,11 @@ function App() {
   const [endGame, setEndGame] = useState(false)
   const [rounds, setRounds] = useState(0)
   const [timer, setTimer] = useState()
-  const [playTheme, { stop }] = useSound(theme, {volume: 0.5})
-  const [playPick] = useSound(pick, {volume: 0.75})
-  const [playMatched] = useSound(matched, {volume: 0.75})
-  const [playVictory] = useSound(victory, {volume: 0.5})
-  const [playLose] = useSound(lose, {volume: 0.5})
+  const [playTheme, { stop }] = useSound(theme, {volume: 0.25})
+  const [playPick] = useSound(pick, {volume: 0.30})
+  const [playMatched] = useSound(matched, {volume: 0.30})
+  const [playVictory] = useSound(victory, {volume: 0.25})
+  const [playLose] = useSound(lose, {volume: 0.25})
 
   const numberGenerator = () => Math.ceil(Math.random() * 600)
   const shuffler = (array) => array.sort(() => Math.random() - 0.5)
@@ -52,9 +52,9 @@ function App() {
         setTime(140)
         break
       case 'hard':
-        setTimer(120)
+        setTimer(110)
         setRequiredCards(18)
-        setTime(120)
+        setTime(110)
         break
       // default:
       //   setRequiredTime(60)
